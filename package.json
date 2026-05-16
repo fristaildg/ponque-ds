@@ -1,0 +1,51 @@
+{
+  "name": "ponque-ds",
+  "version": "1.0.0",
+  "description": "PONQUE-DS",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --project storybook run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fristaildg/ponque-ds.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/fristaildg/ponque-ds/issues"
+  },
+  "homepage": "https://github.com/fristaildg/ponque-ds#readme",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@storybook/addon-a11y": "^10.4.0",
+    "@storybook/addon-docs": "^10.4.0",
+    "@storybook/addon-mcp": "^0.6.0",
+    "@storybook/addon-vitest": "^10.4.0",
+    "@storybook/react-vite": "^10.4.0",
+    "@vitest/browser-playwright": "^4.1.6",
+    "@vitest/coverage-v8": "^4.1.6",
+    "mockdate": "^3.0.5",
+    "msw": "^2.14.6",
+    "msw-storybook-addon": "^2.0.7",
+    "playwright": "^1.60.0",
+    "prop-types": "^15.8.1",
+    "storybook": "^10.4.0",
+    "vitest": "^4.1.6"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "vite": "^8.0.13"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}
