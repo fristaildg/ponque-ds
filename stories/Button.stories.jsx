@@ -1,15 +1,27 @@
 import { expect } from 'storybook/test';
 
-import { Button } from './Button';
+import { Button } from '../src/components/Button';
 
 const meta = {
+  title: 'Components/Button',
   component: Button,
-  tags: ['ai-generated'],
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
   argTypes: {
-    backgroundColor: { control: 'color' },
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'ghost', 'danger'],
+    },
+    size: {
+      control: 'select',
+      options: ['default', 'small'],
+    },
+    loading: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    showIconLeft: { control: 'boolean' },
+    showIconRight: { control: 'boolean' },
   },
 };
 
@@ -17,35 +29,114 @@ export default meta;
 
 export const Primary = {
   args: {
-    primary: true,
-    label: 'Button',
+    variant: 'primary',
+    children: 'Añadir al carrito',
   },
   play: async ({ canvas }) => {
-    const button = canvas.getByRole('button', { name: 'Button' });
-    await expect(button).toHaveClass('storybook-button--primary');
+    const button = canvas.getByRole('button', { name: /añadir al carrito/i });
+    await expect(button).toHaveClass('pq-button--primary');
+    const inner = button.querySelector('.pq-button__inner');
+    await expect(getComputedStyle(inner).backgroundColor).toBe('rgb(236, 234, 85)');
   },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button',
+    variant: 'secondary',
+    children: 'Añadir al carrito',
   },
 };
 
-export const Large = {
+export const Ghost = {
   args: {
-    size: 'large',
-    label: 'Button',
+    variant: 'ghost',
+    children: 'Añadir al carrito',
   },
 };
 
-export const CssCheck = {
+export const Danger = {
   args: {
-    primary: true,
-    label: 'Button',
+    variant: 'danger',
+    children: 'Añadir al carrito',
+  },
+};
+
+export const Small = {
+  args: {
+    variant: 'primary',
+    size: 'small',
+    children: 'Añadir al carrito',
   },
   play: async ({ canvas }) => {
-    const button = canvas.getByRole('button', { name: 'Button' });
-    await expect(getComputedStyle(button).backgroundColor).toBe('rgb(85, 90, 185)');
+    const button = canvas.getByRole('button', { name: /añadir al carrito/i });
+    await expect(button).toHaveClass('pq-button--small');
   },
+};
+
+export const Loading = {
+  args: {
+    variant: 'primary',
+    loading: true,
+  },
+  play: async ({ canvas }) => {
+    const button = canvas.getByRole('button');
+    await expect(button).toHaveAttribute('aria-busy', 'true');
+    await expect(button).toBeDisabled();
+  },
+};
+
+export const Disabled = {
+  args: {
+    variant: 'primary',
+    disabled: true,
+    children: 'Añadir al carrito',
+  },
+  play: async ({ canvas }) => {
+    const button = canvas.getByRole('button', { name: /añadir al carrito/i });
+    await expect(button).toBeDisabled();
+  },
+};
+
+export const TextOnly = {
+  args: {
+    variant: 'primary',
+    showIconLeft: false,
+    showIconRight: false,
+    children: 'Añadir al carrito',
+  },
+};
+
+export const IconOnly = {
+  args: {
+    variant: 'primary',
+    showIconLeft: true,
+    showIconRight: false,
+    children: '',
+  },
+};
+
+const variants = ['primary', 'secondary', 'ghost', 'danger'];
+
+export const AllVariants = {
+  render: () => (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, auto)',
+        gap: '16px',
+        alignItems: 'start',
+      }}
+    >
+      {variants.map((variant) => (
+        <div key={variant} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <Button variant={variant} size="default">
+            Añadir al carrito
+          </Button>
+          <Button variant={variant} size="small">
+            Añadir al carrito
+          </Button>
+        </div>
+      ))}
+    </div>
+  ),
 };

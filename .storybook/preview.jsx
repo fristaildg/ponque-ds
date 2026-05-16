@@ -1,4 +1,5 @@
-import '../stories/button.css';
+import '../styles/fonts.css';
+import '../styles/tokens.css';
 import '../stories/header.css';
 import '../stories/page.css';
 

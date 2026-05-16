@@ -1,0 +1,37 @@
+:root {
+  /* Semantic colors — button (Figma-resolved values) */
+  --color-background-accent: #ecea55;
+  --color-background-accent-strong: #d4d120;
+  --color-background-accent-stronger: #afac00;
+  --color-background-primary: #faf9f8;
+  --color-background-primary-strong: #efeae5;
+  --color-background-primary-stronger: #ded3c7;
+  --color-background-danger: #c0342d;
+  --color-background-danger-strong: #922620;
+  --color-background-danger-stronger: #661713;
+
+  --color-text-body: #27231f;
+  --color-text-body-inverted: #faf9f8;
+
+  --color-border-strong: #27231f;
+  --color-border-focus: #00a6e0;
+
+  /* Spacing */
+  --space-inline: 4px;
+  --space-global: 20px;
+  --space-s: 12px;
+
+  /* Radius & border */
+  --radius-round: 999px;
+  --border-global: 1px;
+  --border-focus: 2px;
+
+  /* Effects */
+  --opacity-disabled: 0.4;
+
+  /* Typography — BodyBold */
+  --typography-body-bold-font-family: 'Fira Sans', sans-serif;
+  --typography-body-bold-font-weight: 700;
+  --typography-body-font-size: 16px;
+  --typography-body-bold-line-height: 1.2;
+}
