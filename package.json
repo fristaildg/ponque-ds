@@ -29,6 +29,7 @@
     "@storybook/react-vite": "^10.4.0",
     "@vitest/browser-playwright": "^4.1.6",
     "@vitest/coverage-v8": "^4.1.6",
+    "chromatic": "^16.10.1",
     "mockdate": "^3.0.5",
     "msw": "^2.14.6",
     "msw-storybook-addon": "^2.0.7",

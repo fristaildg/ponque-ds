@@ -11,6 +11,12 @@ const config = {
     "@storybook/addon-docs",
     "@storybook/addon-mcp"
   ],
-  "framework": "@storybook/react-vite"
+  "framework": "@storybook/react-vite",
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      config.base = '/ponque-ds/';
+    }
+    return config;
+  },
 };
 export default config;
