@@ -3,25 +3,14 @@ import '../styles/tokens.css';
 import '../stories/header.css';
 import '../stories/page.css';
 
-import { initialize, mswLoader } from 'msw-storybook-addon';
-
-import { mswHandlers } from './msw-handlers';
-
-initialize({ onUnhandledRequest: 'bypass' });
-
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
-  loaders: [mswLoader],
   parameters: {
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
-    },
-
-    msw: {
-      handlers: mswHandlers,
     },
 
     a11y: {
